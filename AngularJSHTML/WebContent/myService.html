@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+
+<title>Insert title here</title>
+</head>
+<body>
+<div ng-app="myApp" ng-controller="myCtrl">
+My Full Name is : {{x}}
+</div>
+
+<script>
+var app = angular.module("myApp",[]);
+app.service("myService", function(){
+	this.myFunct=function(fn,ln){
+		return fn + " " + ln ; 
+	}
+});
+app.controller("myCtrl",function($scope, myService){
+	$scope.x=myService.myFunct('Java1','World1');
+});
+
+</script>
+
+</body>
+</html>

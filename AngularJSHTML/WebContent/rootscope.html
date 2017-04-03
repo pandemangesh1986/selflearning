@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<title>Root Scope</title>
+</head>
+<body ng-app="myApp">
+<p>Root scope of Color</p>
+<h1>{{color}}</h1>
+<div ng-controller="myCtrl">
+<p>scope of Color</p>
+<h1>{{color}}</h1>
+<h1>{{myUrl}}</h1>
+</div>
+
+<p>Root scope of Color is still</p>
+<h1>{{color}}</h1>
+<h1>{{myUrl}}</h1>
+
+<script>
+var app = angular.module('myApp', []);
+app.run(function($rootScope,$location) {
+    $rootScope.color = 'blue';
+    $rootScope.myUrl=$location.absUrl();
+});
+app.controller('myCtrl', function($scope,$location) {
+    $scope.color = "red";
+    $scope.myUrl=$location.absUrl();
+});
+</script>
+
+</body>
+</html>
