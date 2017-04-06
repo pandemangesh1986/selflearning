@@ -1,4 +1,4 @@
-package test;
+package com.practice.food.factory;
 
 
 public class Summation {
